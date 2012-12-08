@@ -460,7 +460,7 @@ class Tx_Powermail_Utility_Div {
 	 * @param 	array		Variables
 	 * @return	string		Parsed string
 	 */
-	private function fluidParseString($string, $objectManager, $variables = array()) {
+	public function fluidParseString($string, $objectManager, $variables = array()) {
 		if (!$string) {
 			return '';
 		}
@@ -597,7 +597,7 @@ class Tx_Powermail_Utility_Div {
 	 */
 	public function getEmailsFromString($string) {
 		$array = array();
-		$string = str_replace(array("\n", '|'), ';', $string);
+		$string = str_replace(array("\n", '|', ','), ';', $string);
 		$arr = t3lib_div::trimExplode(';', $string, 1);
 		foreach ($arr as $email) {
 			$array[] = $email;
